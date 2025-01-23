@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Electronics;
-
 use App\Models\ElectronicsItem;
 use Illuminate\Http\Request;
 
@@ -38,8 +37,11 @@ class ElectronicsController extends Controller
         return redirect()->route('electronics.create')->with('success', 'Item added successfully!');
     }
     public function index()
-{
-    $items = Electronics::all();
-    return view('electronics', compact('items'));
-}
+    {
+        // Fetch electronics items from the database
+        $items = Electronics::all(); // Replace `Electronic` with your actual model name
+
+        // Pass the items to the view
+        return view('electronics', compact('items'));
+    }
 }
