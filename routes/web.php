@@ -29,3 +29,5 @@ Route::post('/electronicss', [ElectronicsController::class, 'store'])->name('ele
 Route::get('/electronics/create', [ElectronicsController::class, 'create'])->name('electronics.create');
 Route::post('/item/store', [ItemController::class, 'store'])->name('item.store');
 
+
+Route::get('/item/create', [ItemController::class, 'create'])->name('item.create');
