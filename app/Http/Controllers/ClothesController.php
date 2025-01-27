@@ -42,7 +42,7 @@ class ClothesController extends Controller
     ]);
 
     // Redirect to the clothes page with a success message
-    return redirect()->route('clothes.index')->with('success', 'Item added successfully!');
+    return redirect()->route('clothes')->with('success', 'Item added successfully!');
 }
 
 }
