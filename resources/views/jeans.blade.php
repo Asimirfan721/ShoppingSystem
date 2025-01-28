@@ -45,12 +45,12 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('jeans.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                {{-- <!-- Remove the Edit button -->
                                 <form action="{{ route('jeans.destroy', $item->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form>
+                                </form> --}}
                             </td>
                         </tr>
                     @endforeach
