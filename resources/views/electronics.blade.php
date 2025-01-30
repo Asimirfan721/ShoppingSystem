@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronics</title>
+
+    <a href="{{ route('home') }}" class="home-btn">Home</a>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -62,6 +64,32 @@
             font-weight: bold;
             color: #ff0000;
         }
+
+        .home-btn {
+            display: inline-block;
+            background-color: #d4af37; /* Gold background */
+            color: #000; /* Black text */
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 30px; /* Space it from other content */
+            display: block; /* Make it block-level */
+            width: 200px; /* Button width */
+            margin-left: auto;
+            margin-right: auto; /* Center it horizontally */
+        }
+
+        .home-btn:hover {
+            background-color: #ffcc00; /* Lighter gold on hover */
+        }
+
+        .home-btn:active {
+            background-color: #ff9900; /* Darker gold on click */
+        }
     </style>
 </head>
 <body>
@@ -71,7 +99,8 @@
             @foreach($items as $item)
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="{{ asset('images/' . $item->image) }}" class="card-img-top" alt="{{ $item->name }}">
+                        <!-- Updated image source path to use public storage link -->
+                        <img src="{{ asset('storage/electronics/' . $item->image) }}" class="card-img-top" alt="{{ $item->name }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->name }}</h5>
                             <p class="card-text">{{ $item->description }}</p>

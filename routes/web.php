@@ -47,3 +47,8 @@ Route::post('/item/store', [ItemController::class, 'store'])->name('item.store')
 
 
 Route::get('/item/create', [ItemController::class, 'create'])->name('item.create');
+
+
+Route::get('/', function () {
+    return view('home'); // Replace 'home' with 'welcome' or another view name
+})->name('home');
