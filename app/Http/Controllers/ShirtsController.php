@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Shirts;
 use Illuminate\Http\Request;
-
+ 
 class ShirtsController extends Controller
 {
     public function index()

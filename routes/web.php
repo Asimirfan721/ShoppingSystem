@@ -32,9 +32,11 @@ Route::get('/shirts/create', [ShirtsController::class, 'create'])->name('shirts.
 Route::post('/shirts-store', [ShirtsController::class, 'store'])->name('shirts.store');
 
 
-
+//watches
 Route::get('/watches', [WatchesController::class, 'index'])->name('watches');
-
+Route::get('/watches-index', [WatchesController::class, 'index'])->name('watches.index');
+Route::get('/watches/create', [WatchesController::class, 'create'])->name('watches.create');
+Route::post('/watches-store', [WatchesController::class, 'store'])->name('watches.store');
 //Electronics
 Route::get('/electroniccs', [ElectronicsController::class, 'index'])->name('electronics');
 Route::get('/electronics', [ElectronicsController::class, 'index'])->name('electronics.index');
