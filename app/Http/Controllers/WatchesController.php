@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use App\Models\Watches;
 use Illuminate\Http\Request;
-
+ 
 class WatchesController extends Controller
 {
     public function index()
