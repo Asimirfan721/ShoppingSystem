@@ -4,107 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Clothes</title>
-
-   
-    <a href="{{ route('home') }}" class="home-btn">Home</a>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* General Page Styles */
         body {
-            background-color: #000; /* Black background */
-            color: #fff;
+            background-color: white; /* White Background */
+            color: black; /* Black Text */
             font-family: 'Arial', sans-serif;
         }
 
         h1, h2 {
             text-align: center;
-            margin-bottom: 30px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             font-weight: bold;
-            color: #d60000; /* Red heading */
+            letter-spacing: 1px;
+            color: black;
+            margin-bottom: 30px;
         }
 
+        /* Cards */
         .card {
-            background-color: #111; /* Dark card background */
-            border: 2px solid #d60000; /* Red border */
-            border-radius: 10px;
-            overflow: hidden;
+            background-color: white; /* White Background */
+            border: 2px solid red; /* Red Border */
+            border-radius: 8px;
             transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
         }
 
         .card:hover {
             transform: scale(1.05);
-            border-color: #ff0000;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
         }
 
         .card-img-top {
-            max-height: 250px;
+            max-height: 220px;
             object-fit: cover;
-            border-bottom: 2px solid #d60000;
+            border-bottom: 2px solid red;
         }
 
         .card-body {
             text-align: center;
+            padding: 15px;
         }
 
         .card-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
-            color: #fff;
+            color: black;
         }
 
         .card-text {
-            font-size: 16px;
-            color: #bbb;
+            font-size: 14px;
+            color: black;
         }
 
         .price {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            color: #ff0000;
+            color: red;
         }
 
+        /* No Items Message */
         .empty-message {
             text-align: center;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
-            color: #bbb;
+            color: black;
             margin-top: 20px;
         }
-    </style>
-    <style>
+
+        /* Home Button */
         .home-btn {
             display: inline-block;
-            background-color: #d4af37; /* Gold background */
-            color: #000; /* Black text */
+            background-color: red;
+            color: white;
             padding: 10px 20px;
-            text-align: center;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease-in-out;
-            margin-top: 30px; /* Space it from other content */
-            display: block; /* Make it block-level */
-            width: 200px; /* Button width */
-            margin-left: auto;
-            margin-right: auto; /* Center it horizontally */
+            transition: all 0.3s ease-in-out;
+            display: block;
+            width: 200px;
+            text-align: center;
+            margin: 30px auto;
+            text-transform: uppercase;
+            border: 2px solid transparent;
         }
-    
+
         .home-btn:hover {
-            background-color: #ffcc00; /* Lighter gold on hover */
-        }
-    
-        .home-btn:active {
-            background-color: #ff9900; /* Darker gold on click */
+            background-color: black;
+            color: white;
+            border: 2px solid red;
         }
     </style>
-    
 </head>
 <body>
+    <a href="{{ route('home') }}" class="home-btn">Home</a>
+
     <div class="container mt-5">
-        <h1>Welcome to the Clothes Page</h1>
+        <h1>Welcome to Clothes</h1>
 
         <!-- Display Clothes Items -->
         <div class="mt-5">
@@ -131,4 +131,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
- 

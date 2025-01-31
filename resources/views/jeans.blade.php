@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Jeans</title>
-    
-    <a href="{{ route('home') }}" class="home-btn">Home</a>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* General Page Styles */
         body {
-            background-color: #000; /* Black background */
-            color: #fff; /* White text color */
+            background-color: #fff; /* White background */
+            color: #000; /* Black text */
             font-family: 'Arial', sans-serif;
         }
 
@@ -23,6 +23,7 @@
             letter-spacing: 2px;
         }
 
+        /* Success Message */
         .alert-success {
             background-color: #28a745;
             color: #fff;
@@ -30,9 +31,10 @@
             text-align: center;
         }
 
+        /* Table Styles */
         table {
-            background-color: #111; /* Dark table background */
-            color: #fff; /* White text in table */
+            background-color: #f9f9f9; /* Light background */
+            color: #000; /* Black text */
             border: 2px solid #d60000; /* Red border */
         }
 
@@ -48,28 +50,32 @@
         }
 
         tbody tr:hover {
-            background-color: #222; /* Slightly lighter black */
+            background-color: #ffe6e6; /* Light red hover effect */
             transition: all 0.3s ease-in-out;
         }
 
+        /* Image Styling */
         img {
             border-radius: 5px;
             border: 2px solid #d60000;
             transition: transform 0.3s ease-in-out;
+            max-width: 100px;
         }
 
         img:hover {
             transform: scale(1.1);
         }
 
+        /* No Items Message */
         .no-items {
             text-align: center;
             font-size: 20px;
             font-weight: bold;
-            color: #fff; /* White text color for "No items" */
+            color: #555;
             margin-top: 20px;
         }
 
+        /* Add Item Link */
         .add-link {
             color: #d60000;
             font-weight: bold;
@@ -81,6 +87,7 @@
             color: #ff0000;
         }
 
+        /* Buttons */
         .btn-danger {
             background-color: #d60000;
             border: none;
@@ -92,51 +99,49 @@
             background-color: #ff0000;
         }
 
-        /* Ensuring white color for the text content in the table */
-        td {
-            color: #fff; /* White text for table content */
-        }
-    </style>
-    <style>
+        /* Home Button */
         .home-btn {
-            display: inline-block;
-            background-color: #d4af37; /* Gold background */
-            color: #000; /* Black text */
-            padding: 10px 20px;
+            display: block;
+            background-color: #d4af37; /* Gold */
+            color: #000;
+            padding: 12px 20px;
             text-align: center;
             font-size: 18px;
             font-weight: bold;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease-in-out;
-            margin-top: 30px; /* Space it from other content */
-            display: block; /* Make it block-level */
-            width: 200px; /* Button width */
-            margin-left: auto;
-            margin-right: auto; /* Center it horizontally */
+            width: 220px;
+            margin: 30px auto; /* Center the button */
+            text-transform: uppercase;
+            border: 2px solid transparent;
         }
-    
+
         .home-btn:hover {
-            background-color: #ffcc00; /* Lighter gold on hover */
+            background-color: #ffcc00; /* Lighter Gold */
         }
-    
+
         .home-btn:active {
-            background-color: #ff9900; /* Darker gold on click */
+            background-color: #ff9900; /* Darker Gold */
         }
     </style>
 </head>
 <body>
+
+    <!-- Home Button -->
+    <a href="{{ route('home') }}" class="home-btn">Home</a>
+
     <div class="container mt-5">
         <h1>Jeans Items</h1>
 
-        <!-- Display success message if available -->
+        <!-- Success Message -->
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        <!-- Display list of jeans items -->
+        <!-- Jeans Items Table -->
         @if($jeans->isNotEmpty())
             <table class="table table-bordered mt-4">
                 <thead>
@@ -158,17 +163,13 @@
                             <td><strong>${{ number_format($item->price, 2) }}</strong></td>
                             <td>
                                 @if($item->image)
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" style="width: 100px; height: auto;">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
                                 @else
                                     <p>No Image</p>
                                 @endif
                             </td>
                             <td>
-                                {{-- <form action="{{ route('jeans.destroy', $item->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form> --}}
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                             </td>
                         </tr>
                     @endforeach
@@ -180,5 +181,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

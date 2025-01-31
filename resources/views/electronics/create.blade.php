@@ -3,132 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Item</title>
-    
-    <a href="{{ route('home') }}" class="home-btn">Home</a>
+    <title>Add New Item</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        /* General page styles */
+        /* General Styles */
         body {
-            background-color: #111; /* Black background */
-            color: white; /* White text */
+            background-color: white;
+            color: black;
             font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             text-align: center;
-            color: #f44336; /* Red color */
+            font-size: 28px;
+            font-weight: bold;
+            color: red;
+            margin-bottom: 25px;
             text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 30px;
         }
 
-        .container {
-            margin-top: 50px;
-            background-color: #222; /* Dark background for the container */
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Form styles */
+        /* Form Styles */
         .form-label {
-            color: #f44336; /* Red color for labels */
-        }
-
-        .form-control {
-            background-color: #333; /* Dark input fields */
-            border: 1px solid #f44336; /* Red border for inputs */
-            color: white; /* White text inside inputs */
-        }
-
-        .form-control:focus {
-            border-color: #ff4081; /* Lighter red on focus */
-            background-color: #444;
-            box-shadow: 0 0 0 0.25rem rgba(244, 67, 54, 0.25);
-        }
-
-        .form-select {
-            background-color: #333; /* Dark dropdown */
-            border: 1px solid #f44336; /* Red border */
-            color: white; /* White text in dropdown */
-        }
-
-        .form-select:focus {
-            border-color: #ff4081; /* Lighter red on focus */
-            background-color: #444;
-            box-shadow: 0 0 0 0.25rem rgba(244, 67, 54, 0.25);
-        }
-
-        /* Button styles */
-        .btn-primary {
-            background-color: #f44336; /* Red button */
-            border-color: #f44336; /* Red border for button */
-        }
-
-        .btn-primary:hover {
-            background-color: #ff4081; /* Lighter red on hover */
-            border-color: #ff4081;
-        }
-
-        .home-btn {
-            display: inline-block;
-            background-color: #f44336; /* Red background */
-            color: #fff; /* White text */
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 18px;
             font-weight: bold;
-            text-decoration: none;
+            color: black;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid black;
+            color: black;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: red;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+
+        /* File Input & Image Preview */
+        .file-input {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            border: 2px solid black;
             border-radius: 5px;
-            transition: background-color 0.3s ease-in-out;
-            margin-top: 30px; /* Space it from other content */
-            display: block; /* Make it block-level */
-            width: 200px; /* Button width */
-            margin-left: auto;
-            margin-right: auto; /* Center it horizontally */
+            padding: 8px;
+            cursor: pointer;
+            text-align: center;
+            background-color: white;
+            color: black;
+            transition: background 0.3s ease;
+        }
+
+        .file-input:hover {
+            background-color: red;
+            color: white;
+        }
+
+        #image-preview {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 2px solid black;
+            display: none;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            background-color: red;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: black;
+        }
+
+        /* Home Button */
+        .home-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            background: black;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
         }
 
         .home-btn:hover {
-            background-color: #ff4081; /* Lighter red on hover */
-        }
-
-        .home-btn:active {
-            background-color: #e31b00; /* Darker red on click */
+            background: red;
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
+
+    <div class="container">
         <h1>Add New Item</h1>
 
-        <!-- Form to add new item -->
-        <form action="{{ route('item.store') }}" method="POST" enctype="multipart/form-data">
+        <form id="addItemForm" action="{{ route('item.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
+                <label for="name" class="form-label">Item Name</label>
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description" required></textarea>
+                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="price" class="form-label">Price</label>
-                <input type="number" class="form-control" id="price" name="price" required>
+                <label for="price" class="form-label">Price ($)</label>
+                <input type="number" class="form-control" id="price" name="price" min="1" required>
             </div>
 
             <div class="mb-3">
-                <label for="image" class="form-label">Image</label>
-                <input type="file" class="form-control" id="image" name="image" required>
+                <label class="form-label">Upload Image</label>
+                <label for="image" class="file-input">Choose Image</label>
+                <input type="file" class="form-control d-none" id="image" name="image" accept="image/*" required>
+                <img id="image-preview">
             </div>
 
             <div class="mb-3">
-                <label for="category" class="form-label">Category</label>
+                <label for="category" class="form-label">Select Category</label>
                 <select class="form-select" id="category" name="category" required>
-                    <option value="electronics" selected>Electronics</option>
+                    <option value="electronics">Electronics</option>
                     <option value="clothes">Clothes</option>
                     <option value="jeans">Jeans</option>
                     <option value="shirts">Shirts</option>
@@ -136,11 +157,34 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Item</button>
+            <button type="submit" class="btn-submit">Add Item</button>
         </form>
+
+        <a href="{{ route('home') }}" class="home-btn">Home</a>
     </div>
 
+    <script>
+        document.getElementById("image").addEventListener("change", function(event) {
+            let reader = new FileReader();
+            reader.onload = function() {
+                let img = document.getElementById("image-preview");
+                img.src = reader.result;
+                img.style.display = "block";
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        document.getElementById("addItemForm").addEventListener("submit", function(event) {
+            let name = document.getElementById("name").value.trim();
+            let description = document.getElementById("description").value.trim();
+            let price = document.getElementById("price").value.trim();
+
+            if (name === "" || description === "" || price === "") {
+                event.preventDefault();
+                alert("All fields are required!");
+            }
+        });
+    </script>
+
 </body>
 </html>
