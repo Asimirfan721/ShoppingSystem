@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shirts Collection</title>
-    
-    <a href="{{ route('home') }}" class="home-btn">Home</a>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa; /* Light grey background */
+            background-color: #fff; /* White background */
             font-family: 'Arial', sans-serif;
+            color: #333; /* Dark grey text */
         }
 
         h1 {
@@ -27,39 +27,71 @@
             color: #fff;
             border: none;
             text-align: center;
-        }
-
-        table {
-            background-color: #fff; /* White background */
-            color: #000;
-            border: 2px solid #d9534f; /* Red border */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        thead {
-            background-color: #d9534f; /* Red header */
-            color: #fff;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border: 1px solid #d9534f; /* Red border */
-        }
-
-        tbody tr:hover {
-            background-color: #f1f1f1;
-            transition: all 0.3s ease-in-out;
-        }
-
-        img {
+            padding: 10px;
+            font-size: 18px;
             border-radius: 5px;
+        }
+
+        .shirts-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .shirt-card {
+            background: #fff;
             border: 2px solid #d9534f;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
         }
 
-        img:hover {
-            transform: scale(1.1);
+        .shirt-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .shirt-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 2px solid #d9534f;
+            margin-bottom: 10px;
+        }
+
+        .shirt-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        .shirt-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .shirt-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        .btn-danger {
+            background-color: #d9534f;
+            border: none;
+            padding: 8px 12px;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        .btn-danger:hover {
+            background-color: #ff6f61;
         }
 
         .no-items {
@@ -81,21 +113,9 @@
             color: #ff6f61;
         }
 
-        .btn-danger {
-            background-color: #d9534f;
-            border: none;
-            padding: 6px 12px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .btn-danger:hover {
-            background-color: #ff6f61;
-        }
-    </style>
-    <style>
+        /* Home Button */
         .home-btn {
-            display: inline-block;
+            display: block;
             background-color: #d4af37; /* Gold background */
             color: #000; /* Black text */
             padding: 10px 20px;
@@ -105,24 +125,23 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease-in-out;
-            margin-top: 30px; /* Space it from other content */
-            display: block; /* Make it block-level */
-            width: 200px; /* Button width */
-            margin-left: auto;
-            margin-right: auto; /* Center it horizontally */
+            width: 200px;
+            margin: 20px auto; /* Centering */
         }
-    
+
         .home-btn:hover {
-            background-color: #ffcc00; /* Lighter gold on hover */
+            background-color: #ffcc00; /* Lighter gold */
         }
-    
+
         .home-btn:active {
-            background-color: #ff9900; /* Darker gold on click */
+            background-color: #ff9900; /* Darker gold */
         }
     </style>
-    
 </head>
 <body>
+
+    <a href="{{ route('home') }}" class="home-btn">Home</a>
+
     <div class="container mt-5">
         <h1>Shirts Collection</h1>
 
@@ -133,44 +152,25 @@
             </div>
         @endif
 
-        <!-- Display list of shirts items -->
+        <!-- Display shirts collection -->
         @if($shirts->isNotEmpty())
-            <table class="table table-bordered mt-4">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($shirts as $index => $item)
-                        <tr>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->description }}</td>
-                            <td><strong style="color: #d9534f;">${{ number_format($item->price, 2) }}</strong></td>
-                            <td>
-                                @if($item->image)
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" style="width: 100px; height: auto;">
-                                @else
-                                    <p>No Image</p>
-                                @endif
-                            </td>
-                            <td>
-                                {{-- <form action="{{ route('shirts.destroy', $item->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form> --}}
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="shirts-container">
+                @foreach($shirts as $item)
+                    <div class="shirt-card">
+                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
+                        <p class="shirt-name">{{ $item->name }}</p>
+                        <p class="shirt-description">{{ $item->description }}</p>
+                        <p class="shirt-price">${{ number_format($item->price, 2) }}</p>
+                        
+                        {{-- Uncomment if delete functionality is needed --}}
+                        {{-- <form action="{{ route('shirts.destroy', $item->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form> --}}
+                    </div>
+                @endforeach
+            </div>
         @else
             <p class="no-items">No items found in the Shirts category. <a href="{{ route('shirts.create') }}" class="add-link">Add an item</a>.</p>
         @endif

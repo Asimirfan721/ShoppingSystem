@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Watches</title>
-    
+
     <a href="{{ route('home') }}" class="home-btn">Home</a>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         body {
-            background-color: #000; /* Black background */
-            color: #fff;
+            background-color: #ffffff; /* White background */
+            color: #000; /* Black text */
             font-family: 'Arial', sans-serif;
         }
 
@@ -18,7 +19,7 @@
             text-align: center;
             text-transform: uppercase;
             font-weight: bold;
-            color: #d4af37; /* Gold heading */
+            color: #d9534f; /* Red heading */
             margin-bottom: 30px;
             letter-spacing: 2px;
         }
@@ -31,30 +32,31 @@
         }
 
         table {
-            background-color: #111; /* Dark table background */
-            color: #fff;
-            border: 2px solid #d4af37; /* Gold border */
+            background-color: #fff; /* White table background */
+            color: #000; /* Black text */
+            border: 2px solid #d9534f; /* Red border */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
         thead {
-            background-color: #d4af37; /* Gold header */
-            color: #000;
+            background-color: #d9534f; /* Red header */
+            color: #fff;
         }
 
         th, td {
             padding: 12px;
             text-align: center;
-            border: 1px solid #d4af37; /* Gold border */
+            border: 1px solid #d9534f; /* Red border */
         }
 
         tbody tr:hover {
-            background-color: #222; /* Slightly lighter black */
+            background-color: #f1f1f1;
             transition: all 0.3s ease-in-out;
         }
 
         img {
             border-radius: 5px;
-            border: 2px solid #d4af37;
+            border: 2px solid #d9534f;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -66,47 +68,37 @@
             text-align: center;
             font-size: 20px;
             font-weight: bold;
-            color: #bbb;
+            color: #666;
             margin-top: 20px;
         }
 
         .add-link {
-            color: #d4af37;
+            color: #d9534f;
             font-weight: bold;
             text-decoration: none;
         }
 
         .add-link:hover {
             text-decoration: underline;
-            color: #ffcc00;
+            color: #ff6f61;
         }
 
         .btn-danger {
-            background-color: #d4af37;
+            background-color: #d9534f;
             border: none;
             padding: 6px 12px;
             font-weight: bold;
-            color: #000;
+            color: #fff;
         }
 
         .btn-danger:hover {
-            background-color: #ffcc00;
+            background-color: #ff6f61;
         }
 
-        /* Ensuring white color for the text content in the table */
-        td {
-            color: #fff; /* White text for table content */
-        }
-
-        th {
-            color: #000; /* Black text for header */
-        }
-    </style>
-    <style>
         .home-btn {
             display: inline-block;
-            background-color: #d4af37; /* Gold background */
-            color: #000; /* Black text */
+            background-color: #d9534f; /* Red background */
+            color: #fff; /* White text */
             padding: 10px 20px;
             text-align: center;
             font-size: 18px;
@@ -122,11 +114,11 @@
         }
     
         .home-btn:hover {
-            background-color: #ffcc00; /* Lighter gold on hover */
+            background-color: #ff6f61; /* Lighter red on hover */
         }
     
         .home-btn:active {
-            background-color: #ff9900; /* Darker gold on click */
+            background-color: #c9302c; /* Darker red on click */
         }
     </style>
     
@@ -161,7 +153,7 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->description }}</td>
-                            <td><strong style="color: #ffcc00;">${{ number_format($item->price, 2) }}</strong></td>
+                            <td><strong style="color: #d9534f;">${{ number_format($item->price, 2) }}</strong></td>
                             <td>
                                 @if($item->image)
                                     <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" style="width: 100px; height: auto;">
