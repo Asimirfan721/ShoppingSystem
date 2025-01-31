@@ -7,6 +7,7 @@ use App\Http\Controllers\JeansController;
 use App\Http\Controllers\ShirtsController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\WatchesController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('home');

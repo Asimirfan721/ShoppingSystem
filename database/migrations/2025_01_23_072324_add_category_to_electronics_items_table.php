@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::table('electronics_items', function (Blueprint $table) {
+    Schema::table('electronics', function (Blueprint $table) {
         $table->string('category')->after('image'); // Add category field
     });
 }
 
 public function down()
 {
-    Schema::table('electronics_items', function (Blueprint $table) {
+    Schema::table('electronics', function (Blueprint $table) {
         $table->dropColumn('category');
     });
 }
