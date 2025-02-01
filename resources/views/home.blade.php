@@ -33,43 +33,26 @@
         }
 
         h1 {
-            text-align: center;
-            color: #d60000;
-            font-size: 36px;
-            margin-top: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
-        }
+    color: #e63946;
+    text-shadow: 0 0 5px rgba(230, 57, 70, 0.5);
+}
 
-        /* Stylish button styles */
-        .button {
-            position: absolute;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            background: linear-gradient(90deg, #d60000, #ff0000);
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: all 0.3s ease-in-out;
-            border: 2px solid transparent;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+.button {
+    background: linear-gradient(90deg, #e63946, #ff6666);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
+}
 
-        .button:hover {
-            background: #fff;
-            color: #d60000;
-            border-color: #d60000;
-            transform: scale(1.08);
-            box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
-        }
+.button:hover {
+    background: #ffcccc;
+    color: #e63946;
+    border-color: #e63946;
+    box-shadow: 0 0 10px rgba(255, 100, 100, 0.5);
+}
+
+.animation span {
+    background: rgba(255, 100, 100, 0.5);
+    box-shadow: 0 0 10px rgba(255, 100, 100, 0.5);
+}
 
         /* Placing buttons randomly */
         .electronics { top: 20%; left: 10%; }
