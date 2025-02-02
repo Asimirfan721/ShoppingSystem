@@ -54,7 +54,7 @@
     box-shadow: 0 0 10px rgba(255, 100, 100, 0.5);
 }
 
-        /* Placing buttons randomly */
+        /* Placing buttons ran domly */
         .electronics { top: 20%; left: 10%; }
         .clothes { top: 35%; right: 10%; }
         .jeans { top: 50%; left: 20%; }

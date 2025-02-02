@@ -7,7 +7,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* General Page Styles */
+        /* General Page Sty les */
         body {
             background-color: #fff; /* White background */
             color: #000; /* Black text */
