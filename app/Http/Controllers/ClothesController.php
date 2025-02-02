@@ -8,10 +8,10 @@ class ClothesController extends Controller
 {
     public function index()
     {
-        // Fetch all clothes items
+
         $clothes = Clothes::all();
 
-        // Pass the data to the clothes view
+       
         return view('clothes', compact('clothes'));
     }
     public function create()
@@ -20,7 +20,7 @@ class ClothesController extends Controller
     }
     public function store(Request $request)
 {
-    // Validate the form data
+    
     $request->validate([
         'name' => 'required|string|max:255',
         'description' => 'required|string',
@@ -29,10 +29,9 @@ class ClothesController extends Controller
         'category' => 'required|string',
     ]);
 
-    // Handle the image upload
+
     $imagePath = $request->file('image')->store('clothes', 'public');
 
-    // Create a new clothes item
     Clothes::create([
         'name' => $request->name,
         'description' => $request->description,
@@ -41,7 +40,7 @@ class ClothesController extends Controller
         'image' => $imagePath,
     ]);
 
-    // Redirect to the clothes page with a success message
+    
     return redirect()->route('clothes')->with('success', 'Item added successfully!');
 }
 
