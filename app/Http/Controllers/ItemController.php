@@ -21,12 +21,12 @@ class ItemController extends Controller
             'category' => 'required|string',
         ]);
 
-        // Handle the image upload if exists
+        // Handle the image if exists
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('products', 'public');
         }
 
-        // Save the data into the appropriate table based on the category
+        // Save the data into the  on the category
         switch ($request->category) {
             case 'electronics':
                 Electronics::create($data);

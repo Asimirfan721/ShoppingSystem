@@ -7,20 +7,20 @@ use App\Models\Jeans; // Import the Jeans model
 
 class JeansController extends Controller
 {
-    // Display all jeans items
+    // Display all jeans ite
     public function index()
     {
-        // Fetch all jeans items from the database
+        // Fetch all jeans itemsom the database
         $jeans = Jeans::all();
 
         // Pass the jeans data to the view
         return view('jeans', compact('jeans'));
     }
 
-    // Show the form to create a new jeans item
+    // Show the form to creata new jeans item
     public function create()
     {
-        return view('electronics.create'); // Update this if a dedicated view is needed for jeans
+        return view('electronics.create'); // Update is if a dedicated view is needed for jeans
     }
 
     // Store a new jeans item in the database

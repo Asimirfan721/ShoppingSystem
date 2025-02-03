@@ -32,7 +32,7 @@ class ElectronicsController extends Controller
         if ($request->hasFile('image')) {
               $imagePath = $request->file('image')->store('electronics', 'public');
         }
-    
+       
          Electronics::create([
             'name' => $request->name,
             'description' => $request->description,
