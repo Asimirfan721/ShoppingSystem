@@ -8,7 +8,7 @@ class ShirtsController extends Controller
 {
     public function index()
     {
-        // Fetch all jeans items from the database
+        // Fetch all je database
         $shirts = shirts::all();
 
         // Pass the jeans data to the view
@@ -16,7 +16,7 @@ class ShirtsController extends Controller
     }
     public function create()
     {
-        return view('electronics.create'); // Update this if a dedicated view is needed for jeans
+        return view('electronics.create'); // Update this if a ew is needed for jeans
     }
     public function store(Request $request)
     {
@@ -29,7 +29,7 @@ class ShirtsController extends Controller
             'category' => 'required|string',
         ]);
 
-        // Handle the image upload
+        // Handle the image
         $imagePath = $request->file('image')->store('shirts', 'public');
 
         // Create a new jeans item
@@ -41,7 +41,7 @@ class ShirtsController extends Controller
             'image' => $imagePath,
         ]);
 
-        // Redirect to the jeans index page with a success message
+        // Redirect to the j page with a success message
         return redirect()->route('Shirts.index')->with('success', 'Shirts item added successfully!');
     }
 

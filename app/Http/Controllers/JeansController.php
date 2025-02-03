@@ -23,7 +23,7 @@ class JeansController extends Controller
         return view('electronics.create'); // Update is if a dedicated view is needed for jeans
     }
 
-    // Store a new jeans item in the database
+    // Store a new jeans item in the dbase
     public function store(Request $request)
     {
         // Validate the form data
@@ -47,7 +47,7 @@ class JeansController extends Controller
             'image' => $imagePath,
         ]);
 
-        // Redirect to the jeans index page with a success message
+        // Redirect to the jeans index ge with a success message
         return redirect()->route('jeans.index')->with('success', 'Jeans item added successfully!');
     }
 }

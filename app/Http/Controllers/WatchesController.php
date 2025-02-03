@@ -7,7 +7,7 @@ class WatchesController extends Controller
 {
     public function index()
     {
-        // Fetch all jeans items from the database
+        // Fetch all jeans itemse
         $watches = watches::all();
 
         // Pass the jeans data to the view
@@ -15,7 +15,7 @@ class WatchesController extends Controller
     }
     public function create()
     {
-        return view('electronics.create'); // Update this if a dedicated view is needed for jeans
+        return view('electronics.create'); // Update this if a deor jeans
     }
 
     public function store(Request $request)
@@ -29,7 +29,7 @@ class WatchesController extends Controller
             'category' => 'required|string',
         ]);
 
-        // Handle the image upload
+        // Handle the imaad
         $imagePath = $request->file('image')->store('watches', 'public');
 
         // Create a new jeans item
@@ -41,7 +41,7 @@ class WatchesController extends Controller
             'image' => $imagePath,
         ]);
 
-        // Redirect to the jeans index page with a success message
+        // Redirect to the je a success message
         return redirect()->route('watches.index')->with('success', 'Watche added successfully!');
     }
 
