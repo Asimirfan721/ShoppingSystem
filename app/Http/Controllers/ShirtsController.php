@@ -41,7 +41,7 @@ class ShirtsController extends Controller
             'image' => $imagePath,
         ]);
 
-        // Redirect to the j page with a success message
+        // Redirect to tj page with a success message
         return redirect()->route('Shirts.index')->with('success', 'Shirts item added successfully!');
     }
 

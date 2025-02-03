@@ -7,15 +7,15 @@ class WatchesController extends Controller
 {
     public function index()
     {
-        // Fetch all jeans itemse
+        // Fetch all se
         $watches = watches::all();
 
-        // Pass the jeans data to the view
+        // Pass the jeansta to the view
         return view('watches', compact('watches'));
     }
     public function create()
     {
-        return view('electronics.create'); // Update this if a deor jeans
+        return view('electronics.create'); // Update this ifeans
     }
 
     public function store(Request $request)
@@ -41,7 +41,7 @@ class WatchesController extends Controller
             'image' => $imagePath,
         ]);
 
-        // Redirect to the je a success message
+        // Redirect to the jeuccess message
         return redirect()->route('watches.index')->with('success', 'Watche added successfully!');
     }
 
