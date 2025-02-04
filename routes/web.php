@@ -53,3 +53,15 @@ Route::get('/item/create', [ItemController::class, 'create'])->name('item.create
 Route::get('/', function () {
     return view('home'); // Replace 'home' with 'welcome' or another view name
 })->name('home');
+
+//product controller.
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/electronics', [ProductController::class, 'electronics'])->name('electronics');
+//     Route::get('/clothes', [ProductController::class, 'clothes'])->name('clothes');
+//     Route::get('/jeans', [ProductController::class, 'jeans'])->name('jeans');
+//     Route::get('/shirts', [ProductController::class, 'shirts'])->name('shirts');
+//     Route::get('/watches', [ProductController::class, 'watches'])->name('watches');
+// });
+
+
+Route::delete('/image/{id}', [JeansController::class, 'destroy'])->name('image.delete');

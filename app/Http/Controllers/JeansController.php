@@ -1,29 +1,26 @@
 <?php 
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Jeans; // Import the Jeans model
+use App\Models\Jeans;
+use Illuminate\Support\Facades\Storage;
 
 class JeansController extends Controller
 {
-    // Display all jeans ite
+    // Display all jeans items
     public function index()
     {
-        // Fetch all jeans itemsom the database
         $jeans = Jeans::all();
-
-        // Pass the jeans data to the view
         return view('jeans', compact('jeans'));
     }
 
-    // Show the form to creata new jeans item
+    // Show the form to create a new jeans item
     public function create()
     {
-        return view('electronics.create'); // Update is if a dedicated view is needed for jeans
+        return view('jeans.create'); // Corrected view path
     }
 
-    // Store a new jeans item in the dbase
+    // Store a new jeans item in the database
     public function store(Request $request)
     {
         // Validate the form data
@@ -36,18 +33,33 @@ class JeansController extends Controller
         ]);
 
         // Handle the image upload
-        $imagePath = $request->file('image')->store('jeans', 'public');
+        $imagePath = $request->file('image')->store('products', 'public');
 
         // Create a new jeans item
         Jeans::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
-            'category' => 'Jeans',
+            'category' => $request->category, // Allow dynamic category
             'image' => $imagePath,
         ]);
 
-        // Redirect to the jeans index ge with a success message
         return redirect()->route('jeans.index')->with('success', 'Jeans item added successfully!');
+    }
+
+    // Delete a jeans item
+    public function destroy($id)
+    {
+        $jeans = Jeans::findOrFail($id);
+
+        // Check if the image exists before deleting
+        if ($jeans->image && Storage::disk('public')->exists($jeans->image)) {
+            Storage::disk('public')->delete($jeans->image);
+        }
+
+        // Delete the record from the database
+        $jeans->delete();
+
+        return redirect()->back()->with('success', 'Product deleted successfully.');
     }
 }

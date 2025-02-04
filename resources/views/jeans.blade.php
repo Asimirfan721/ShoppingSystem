@@ -169,7 +169,11 @@
                                 @endif
                             </td>
                             <td>
-                                <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                <form action="{{ route('image.delete', $item->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
