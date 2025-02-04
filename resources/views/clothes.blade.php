@@ -9,7 +9,7 @@
     <style>
         /* General Page Styles */
         body {
-            background-color: white; /* White Background */
+            background-color: white; /* Whitnd */
             color: black; /* Black Text */
             font-family: 'Arial', sans-serif;
         }
@@ -25,8 +25,8 @@
 
         /* Cards */
         .card {
-            background-color: white; /* White Background */
-            border: 2px solid red; /* Red Border */
+            background-color: white; /* Whid */
+            border: 2px solid red; /* Reer */
             border-radius: 8px;
             transition: all 0.3s ease-in-out;
             box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
@@ -106,7 +106,7 @@
     <div class="container mt-5">
         <h1>Welcome to Clothes</h1>
 
-        <!-- Display Clothes Items -->
+        <!-- Displatems -->
         <div class="mt-5">
             <h2>Available Clothes</h2>
             <div class="row">

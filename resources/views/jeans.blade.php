@@ -167,7 +167,7 @@
                                 @else
                                     <p>No Image</p>
                                 @endif
-                            </td>
+                             </td>
                             <td>
                                 <form action="{{ route('image.delete', $item->id) }}" method="POST" style="display:inline;">
                                     @csrf
