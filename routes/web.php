@@ -62,6 +62,6 @@ Route::get('/', function () {
 //     Route::get('/shirts', [ProductController::class, 'shirts'])->name('shirts');
 //     Route::get('/watches', [ProductController::class, 'watches'])->name('watches');
 // });
-
+ 
 
 Route::delete('/image/{id}', [JeansController::class, 'destroy'])->name('image.delete');
