@@ -8,6 +8,7 @@ use App\Http\Controllers\ShirtsController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\WatchesController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('home');
@@ -65,3 +66,12 @@ Route::get('/', function () {
  
 
 Route::delete('/image/{id}', [JeansController::class, 'destroy'])->name('image.delete');
+
+
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
