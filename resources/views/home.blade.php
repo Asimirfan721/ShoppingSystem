@@ -10,6 +10,8 @@
         * {
             font-family: 'Poppins', sans-serif;
         }
+
+        /* Background Animation */
         .animation span {
             position: absolute;
             width: 15px;
@@ -27,6 +29,29 @@
         .animation span:nth-child(1) { top: 80%; left: 20%; animation-duration: 6s; }
         .animation span:nth-child(2) { top: 60%; left: 50%; animation-duration: 8s; }
         .animation span:nth-child(3) { top: 40%; left: 70%; animation-duration: 10s; }
+
+        /* Button Styling */
+        .category-btn {
+            display: block;
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+        }
+
+        .category-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white flex items-center justify-center h-screen">
@@ -65,12 +90,12 @@
 
         <!-- Category Buttons -->
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <a href="{{ route('electronics') }}" class="button">Electronics</a>
-            <a href="{{ route('clothes') }}" class="button">Clothes</a>
-            <a href="{{ route('jeans') }}" class="button">Jeans</a>
-            <a href="{{ route('shirts') }}" class="button">Shirts</a>
-            <a href="{{ route('watches') }}" class="button">Watches</a>
-            <a href="{{ route('create') }}" class="button">Create</a>
+            <a href="{{ route('electronics') }}" class="category-btn">Electronics</a>
+            <a href="{{ route('clothes') }}" class="category-btn">Clothes</a>
+            <a href="{{ route('jeans') }}" class="category-btn">Jeans</a>
+            <a href="{{ route('shirts') }}" class="category-btn">Shirts</a>
+            <a href="{{ route('watches') }}" class="category-btn">Watches</a>
+            <a href="{{ route('create') }}" class="category-btn">Create</a>
         </div>
     </div>
 
