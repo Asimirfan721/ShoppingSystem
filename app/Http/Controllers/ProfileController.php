@@ -40,7 +40,7 @@ class ProfileController extends Controller
             $user->password = bcrypt($request->password);
         }
 
-        $user->save();
+       // $user->save();
 
         return redirect()->route('home')->with('success', 'Profile updated successfully!');
     }
@@ -49,7 +49,7 @@ class ProfileController extends Controller
     public function destroy()
     {
         $user = Auth::user();
-        $user->delete();
+      //  $user->delete();
 
         Auth::logout();
 
