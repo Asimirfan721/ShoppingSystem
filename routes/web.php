@@ -10,6 +10,7 @@ use App\Http\Controllers\WatchesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController; 
 Route::get('/', function () {
     return view('home');
 });
@@ -76,9 +77,10 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); 
