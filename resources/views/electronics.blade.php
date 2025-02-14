@@ -126,7 +126,7 @@
     <div class="container mt-5">
         <h1>Electronics Collection</h1>
 
-        <!-- Display success message if available -->
+        <!-- Display success message if  available -->
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}

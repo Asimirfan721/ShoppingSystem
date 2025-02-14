@@ -106,7 +106,7 @@
     <div class="container mt-5">
         <h1>Welcome to Clothes</h1>
 
-        <!-- Displatems -->
+        <!-- Displatems  -->
         <div class="mt-5">
             <h2>Available Clothes</h2>
             <div class="row">
