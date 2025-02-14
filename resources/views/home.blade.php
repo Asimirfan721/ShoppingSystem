@@ -54,6 +54,7 @@
         }
     </style>
 </head>
+ 
 <body class="bg-gray-900 text-white flex items-center justify-center h-screen">
 
     <!-- Floating Background Animation -->
