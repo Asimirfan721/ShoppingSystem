@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Shirts;
 use Illuminate\Http\Request;
- 
+use Illuminate\Support\Facades\Storage;
 class ShirtsController extends Controller
 {
     public function index()
@@ -44,6 +44,20 @@ class ShirtsController extends Controller
         // Redirect to tj page with a success message
         return redirect()->route('Shirts.index')->with('success', 'Shirts item added successfully!');
     }
+    public function destroy($id)
+{
+    $shirts = Shirts::findOrFail($id);
+
+    // Delete image from storage
+    if ($shirts->image) {
+        Storage::delete('public/' . $shirts->image);
+    }
+
+    // Delete the record from database
+    $shirts->delete();
+
+    return redirect()->route('shirts.index')->with('success', 'Shirt image deleted successfully.');
+}
 
 }
  

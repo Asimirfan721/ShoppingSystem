@@ -21,7 +21,7 @@ Route::get('/clothes', [ClothesController::class, 'index'])->name('clothes.index
 Route::get('/cloth', [ClothesController::class, 'index'])->name('clothes');
 Route::get('/clothes/create', [ClothesController::class, 'create'])->name('create');
 
-//Jeans Controller
+ //Jeans Controller
 
 Route::get('/jeans', [JeansController::class, 'index'])->name('jeans');
 Route::get('/jeans-index', [JeansController::class, 'index'])->name('jeans.index');
@@ -33,6 +33,7 @@ Route::get('/shirts', [ShirtsController::class, 'index'])->name('shirts');
 Route::get('/shirts-index', [ShirtsController::class, 'index'])->name('shirts.index');
 Route::get('/shirts/create', [ShirtsController::class, 'create'])->name('shirts.create');
 Route::post('/shirts-store', [ShirtsController::class, 'store'])->name('shirts.store');
+Route::delete('/shirts/{id}', [ShirtsController::class, 'destroy'])->name('shirts.destroy');
 
 
 //watches
@@ -47,8 +48,6 @@ Route::get('/electronics/create', [ElectronicsController::class, 'create'])->nam
 Route::post('/electronicss', [ElectronicsController::class, 'store'])->name('electronics.store');
 Route::get('/electronics/create', [ElectronicsController::class, 'create'])->name('electronics.create');
 Route::post('/item/store', [ItemController::class, 'store'])->name('item.store');
-
-
 Route::get('/item/create', [ItemController::class, 'create'])->name('item.create');
 
 
