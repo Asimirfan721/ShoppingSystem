@@ -21,7 +21,7 @@ Route::get('/clothes', [ClothesController::class, 'index'])->name('clothes.index
 Route::get('/cloth', [ClothesController::class, 'index'])->name('clothes');
 Route::get('/clothes/create', [ClothesController::class, 'create'])->name('create');
 
-Route::delete('/clothes/{id}', [ShirtsController::class, 'destroy'])->name('clothes.destroy');
+Route::delete('/clothes/{id}', [ClothesController::class, 'destroy'])->name('clothes.destroy');
 
  //Jeans Controller
 
