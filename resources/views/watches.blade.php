@@ -37,7 +37,7 @@
             border: 2px solid #d9534f; /* Red border */
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-
+ 
         thead {
             background-color: #d9534f; /* Red header */
             color: #fff;
@@ -162,11 +162,11 @@
                                 @endif
                             </td>
                             <td>
-                                {{-- <form action="{{ route('watches.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                <form action="{{ route('watches.destroy', $item->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form> --}}
+                                </form>
                             </td>
                         </tr>
                     @endforeach

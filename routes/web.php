@@ -41,6 +41,7 @@ Route::get('/watches', [WatchesController::class, 'index'])->name('watches');
 Route::get('/watches-index', [WatchesController::class, 'index'])->name('watches.index');
 Route::get('/watches/create', [WatchesController::class, 'create'])->name('watches.create');
 Route::post('/watches-store', [WatchesController::class, 'store'])->name('watches.store');
+Route::delete('/watches/{id}', [watchesController::class, 'destroy'])->name('watches.destroy');
 //Electronics
 Route::get('/electroniccs', [ElectronicsController::class, 'index'])->name('electronics');
 Route::get('/electronics', [ElectronicsController::class, 'index'])->name('electronics.index');
