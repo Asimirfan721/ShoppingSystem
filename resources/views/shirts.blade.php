@@ -162,6 +162,7 @@
                         <p class="shirt-description">{{ $item->description }}</p>
                         <p class="shirt-price">${{ number_format($item->price, 2) }}</p>
                         
+                        <a href="{{ route('shirts.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                          <form action="{{ route('shirts.destroy', $item->id) }}" method="POST">
                              @csrf
                             @method('DELETE')

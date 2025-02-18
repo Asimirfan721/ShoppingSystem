@@ -34,8 +34,6 @@ Route::get('/jeans/create', [JeansController::class, 'create'])->name('jeans.cre
 Route::post('/jeans-store', [JeansController::class, 'store'])->name('jeans.store');
 
 Route::get('/jeans/{id}/edit', [JeansController::class, 'edit'])->name('jeans.edit');
-
-// Update the specific item
 Route::put('/jeans/{id}', [JeansController::class, 'update'])->name('jeans.update');
 
 //ShirtsController
@@ -44,6 +42,9 @@ Route::get('/shirts-index', [ShirtsController::class, 'index'])->name('shirts.in
 Route::get('/shirts/create', [ShirtsController::class, 'create'])->name('shirts.create');
 Route::post('/shirts-store', [ShirtsController::class, 'store'])->name('shirts.store');
 Route::delete('/shirts/{id}', [ShirtsController::class, 'destroy'])->name('shirts.destroy');
+
+Route::get('/shirts/{id}/edit', [ShirtsController::class, 'edit'])->name('shirts.edit');
+Route::put('/shirts/{id}', [ShirtsController::class, 'update'])->name('shirts.update');
 
 
 //watches
