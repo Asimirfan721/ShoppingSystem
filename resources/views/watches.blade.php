@@ -162,6 +162,7 @@
                                 @endif
                             </td>
                             <td>
+                              <a href="{{ route('watches.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('watches.destroy', $item->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')

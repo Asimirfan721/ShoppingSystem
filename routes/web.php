@@ -53,6 +53,9 @@ Route::get('/watches-index', [WatchesController::class, 'index'])->name('watches
 Route::get('/watches/create', [WatchesController::class, 'create'])->name('watches.create');
 Route::post('/watches-store', [WatchesController::class, 'store'])->name('watches.store');
 Route::delete('/watches/{id}', [watchesController::class, 'destroy'])->name('watches.destroy');
+Route::get('/watches/{id}/edit', [WatchesController::class, 'edit'])->name('watches.edit');
+Route::put('/watches/{id}', [WatchesController::class, 'update'])->name('watches.update');
+
 //Electronics
 Route::get('/electroniccs', [ElectronicsController::class, 'index'])->name('electronics');
 Route::get('/electronics', [ElectronicsController::class, 'index'])->name('electronics.index');
@@ -61,12 +64,8 @@ Route::post('/electronicss', [ElectronicsController::class, 'store'])->name('ele
 Route::get('/electronics/create', [ElectronicsController::class, 'create'])->name('electronics.create');
 Route::post('/item/store', [ItemController::class, 'store'])->name('item.store');
 Route::get('/item/create', [ItemController::class, 'create'])->name('item.create');
-
 Route::delete('/electronics/{id}', [ElectronicsController::class, 'destroy'])->name('electronics.destroy');
-// Show the edit form for a specific item
 Route::get('/electronics/{id}/edit', [ElectronicsController::class, 'edit'])->name('electronics.edit');
-
-// Update the specific item
 Route::put('/electronics/{id}', [ElectronicsController::class, 'update'])->name('electronics.update');
 
 
@@ -86,20 +85,13 @@ Route::get('/', function () {
  
 
 Route::delete('/image/{id}', [JeansController::class, 'destroy'])->name('image.delete');
-
-
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
-
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard'); 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Shirts</title>
+    <title>Edit Watches</title>
     <!-- Bootstrap CSS Link -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -27,9 +27,10 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Edit Shrits  Item</h1>
+        <h1 class="text-center mb-4">Edit Watches Item</h1>
 
         <!-- Display success message if available -->
         @if(session('success'))
@@ -39,7 +40,7 @@
         @endif
 
         <!-- Edit Form -->
-        <form action="{{ route('shirts.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('watches.update', $item->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
