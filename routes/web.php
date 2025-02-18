@@ -54,6 +54,12 @@ Route::post('/item/store', [ItemController::class, 'store'])->name('item.store')
 Route::get('/item/create', [ItemController::class, 'create'])->name('item.create');
 
 Route::delete('/electronics/{id}', [ElectronicsController::class, 'destroy'])->name('electronics.destroy');
+// Show the edit form for a specific item
+Route::get('/electronics/{id}/edit', [ElectronicsController::class, 'edit'])->name('electronics.edit');
+
+// Update the specific item
+Route::put('/electronics/{id}', [ElectronicsController::class, 'update'])->name('electronics.update');
+
 
 
 Route::get('/', function () {
