@@ -169,6 +169,8 @@
                                 @endif
                              </td>
                             <td>
+                                
+                                <a href="{{ route('jeans.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('image.delete', $item->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')

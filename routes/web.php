@@ -33,6 +33,11 @@ Route::get('/jeans-index', [JeansController::class, 'index'])->name('jeans.index
 Route::get('/jeans/create', [JeansController::class, 'create'])->name('jeans.create');
 Route::post('/jeans-store', [JeansController::class, 'store'])->name('jeans.store');
 
+Route::get('/jeans/{id}/edit', [JeansController::class, 'edit'])->name('jeans.edit');
+
+// Update the specific item
+Route::put('/jeans/{id}', [JeansController::class, 'update'])->name('jeans.update');
+
 //ShirtsController
 Route::get('/shirts', [ShirtsController::class, 'index'])->name('shirts');
 Route::get('/shirts-index', [ShirtsController::class, 'index'])->name('shirts.index');
