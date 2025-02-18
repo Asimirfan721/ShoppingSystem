@@ -16,7 +16,7 @@
             position: absolute;
             width: 15px;
             height: 15px;
-            background: rgba(255, 0, 0, 0.7);
+            background: rgba(210, 0, 0, 0.7);
             box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
             border-radius: 50%;
             animation: float 6s infinite;

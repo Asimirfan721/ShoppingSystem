@@ -162,18 +162,18 @@
                         <p class="shirt-description">{{ $item->description }}</p>
                         <p class="shirt-price">${{ number_format($item->price, 2) }}</p>
                         
-                        {{-- Uncomment if delete functionality is needed --}}
-                        {{-- <form action="{{ route('shirts.destroy', $item->id) }}" method="POST">
+                         <form action="{{ route('shirts.destroy', $item->id) }}" method="POST">
                              @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                        </form> --}}
+                        </form> 
 
-                        <form action="{{ route('shirts.destroy', $item->id) }}" method="POST">
+                        {{-- <form action="{{ route('shirts.destroy', $item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this image?')">Delete</button>
                         </form>
+                         --}}
                     </div>
                 @endforeach
             </div>

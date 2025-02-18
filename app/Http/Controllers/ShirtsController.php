@@ -9,7 +9,7 @@ class ShirtsController extends Controller
     public function index()
     {
         // Fetch all je database
-        $shirts = shirts::all();
+        $shirts = Shirts::all();
 
         // Pass the jeans data to the view
         return view('shirts', compact('shirts'));
@@ -42,7 +42,7 @@ class ShirtsController extends Controller
         ]);
    
         // Redirect to tj page with a success message
-        return redirect()->route('Shirts.index')->with('success', 'Shirts item added successfully!');
+        return redirect()->route('shirts.index')->with('success', 'Shirts item added successfully!');
     }
     public function destroy($id)
 {
