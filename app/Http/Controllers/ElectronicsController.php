@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\Electronics;
 use App\Models\ElectronicsItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ElectronicsController extends Controller
 {
@@ -41,5 +42,19 @@ class ElectronicsController extends Controller
     
         return redirect()->route('electronics.create')->with('success', 'Item added successfully!');
     }
+    public function destroy($id)
+{
+    $electronics = electronics::findOrFail($id);
+
+    // Delete image from storage
+    if ($electronics->image) {
+        Storage::delete('public/' . $electronics->image);
+    }
+
+    // Delete the record from database
+    $electronics->delete();
+
+    return redirect()->route('electronics.index')->with('success', 'Shirt image deleted successfully.');
+}
      
 }

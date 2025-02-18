@@ -155,17 +155,17 @@
                             <td><strong style="color: #d9534f;">${{ number_format($item->price, 2) }}</strong></td>
                             <td>
                                 @if($item->image)
-                                    <img src="{{ asset('storage/electronics/' . $item->image) }}" alt="{{ $item->name }}" style="width: 100px; height: auto;">
+                                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" style="width: 100px; height: auto;">
                                 @else
                                     <p>No Image</p>
                                 @endif
                             </td>
                             <td>
-                                {{-- <form action="{{ route('electronics.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                <form action="{{ route('electronics.destroy', $item->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form> --}}
+                                </form>
                             </td>
                         </tr>
                     @endforeach

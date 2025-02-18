@@ -53,6 +53,8 @@ Route::get('/electronics/create', [ElectronicsController::class, 'create'])->nam
 Route::post('/item/store', [ItemController::class, 'store'])->name('item.store');
 Route::get('/item/create', [ItemController::class, 'create'])->name('item.create');
 
+Route::delete('/shirts/{id}', [ElectronicsController::class, 'destroy'])->name('electronics.destroy');
+
 
 Route::get('/', function () {
     return view('home'); // Replace 'home' with 'welcome' or another view name
