@@ -118,8 +118,9 @@
                                 <h5 class="card-title">{{ $item->name }}</h5>
                                 <p class="card-text">{{ $item->description }}</p>
                                 <p class="price"><strong>Price:</strong> ${{ number_format($item->price, 2) }}</p>
+                                <a href="{{ route('clothes.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('clothes.destroy', $item->id) }}" method="POST">
-                                    @csrf
+                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this image?')">Delete</button>
                                 </form>

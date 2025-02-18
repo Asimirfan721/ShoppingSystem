@@ -14,14 +14,17 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('home');
 });
-
+//Clothes
 Route::get('/electronics', [ElectronicsController::class, 'index'])->name('electronics');
 Route::get('/clothes', [ClothesController::class, 'index'])->name('clothes.index');
-
 Route::get('/cloth', [ClothesController::class, 'index'])->name('clothes');
 Route::get('/clothes/create', [ClothesController::class, 'create'])->name('create');
-
 Route::delete('/clothes/{id}', [ClothesController::class, 'destroy'])->name('clothes.destroy');
+Route::get('/clothes/{id}/edit', [ClothesController::class, 'edit'])->name('clothes.edit');
+
+// Update the specific item
+Route::put('/clothes/{id}', [ClothesController::class, 'update'])->name('clothes.update');
+
 
  //Jeans Controller
 
