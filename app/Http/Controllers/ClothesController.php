@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\clothes;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ClothesController extends Controller
@@ -42,6 +43,20 @@ class ClothesController extends Controller
 
     
     return redirect()->route('clothes')->with('success', 'Item added successfully!');
+}
+public function destroy($id)
+{
+    $clothes = Clothes::findOrFail($id);
+
+    // Delete image from storage
+    if ($clothes->image) {
+        Storage::delete('public/' . $clothes->image);
+    }
+
+    // Delete the record from database
+    $clothes->delete();
+
+    return redirect()->route('clothes.index')->with('success', 'Shirt image deleted successfully.');
 }
 
 }
