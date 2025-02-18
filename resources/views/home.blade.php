@@ -6,6 +6,7 @@
     <title>Modern Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         * {
             font-family: 'Poppins', sans-serif;
@@ -16,8 +17,8 @@
             position: absolute;
             width: 15px;
             height: 15px;
-            background: rgba(210, 0, 0, 0.7);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
             border-radius: 50%;
             animation: float 6s infinite;
             opacity: 0.7;
@@ -38,24 +39,86 @@
             font-size: 1.1rem;
             font-weight: 600;
             color: white;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
             transition: all 0.3s ease-in-out;
             text-transform: uppercase;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
         .category-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-3px);
-            box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Spinner */
+        .loader {
+            display: none;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Profile Dropdown */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: #333;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px 0;
+            min-width: 150px;
+            z-index: 10;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: inherit;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Profile Icon */
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .profile-btn img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
         }
     </style>
 </head>
- 
-<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+<body class="bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-white flex items-center justify-center h-screen">
 
     <!-- Floating Background Animation -->
     <div class="animation">
@@ -64,22 +127,22 @@
         <span></span>
     </div>
 
-    <div class="relative w-full max-w-4xl p-6 bg-gray-800 rounded-xl shadow-lg">
+    <div class="relative w-full max-w-4xl p-8 bg-gray-800 rounded-xl shadow-lg">
         <!-- Header with User Profile -->
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold text-red-400">Welcome to Our Modern Store</h1>
+            <h1 class="text-4xl font-bold text-yellow-400">Welcome to Our Modern Store</h1>
             
             <!-- Profile Dropdown -->
             @auth
             <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="flex items-center space-x-2 focus:outline-none">
-                    <img src="https://i.pravatar.cc/40" alt="User Avatar" class="w-10 h-10 rounded-full">
+                <button @click="open = !open" class="profile-btn">
+                    <img src="https://i.pravatar.cc/40" alt="User Avatar">
                     <span class="text-lg font-medium">{{ Auth::user()->name }}</span>
                 </button>
 
                 <!-- Dropdown Menu -->
-                <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-40 bg-white text-gray-900 rounded-lg shadow-lg overflow-hidden z-10">
-                    <a href="{{ route('profile') }}" class="block px-4 py-2 hover:bg-gray-200">Profile</a>
+                <div x-show="open" @click.away="open = false" class="dropdown-menu">
+                    <a href="{{ route('profile') }}" class="hover:bg-gray-200">Profile</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="w-full text-left px-4 py-2 hover:bg-gray-200">Logout</button>
@@ -90,7 +153,7 @@
         </div>
 
         <!-- Category Buttons -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
             <a href="{{ route('electronics') }}" class="category-btn">Electronics</a>
             <a href="{{ route('clothes') }}" class="category-btn">Clothes</a>
             <a href="{{ route('jeans') }}" class="category-btn">Jeans</a>
@@ -98,6 +161,9 @@
             <a href="{{ route('watches') }}" class="category-btn">Watches</a>
             <a href="{{ route('create') }}" class="category-btn">Create</a>
         </div>
+
+        <!-- Loading Spinner -->
+        <div class="loader" id="loader"></div>
     </div>
 
     <script>
@@ -108,6 +174,18 @@
                 if (!dropdown.contains(event.target)) {
                     dropdown.__x.$data.open = false;
                 }
+            });
+
+            // AJAX for category navigation with loading spinner
+            $('.category-btn').on('click', function(event) {
+                event.preventDefault();
+                $('#loader').show();
+
+                // Simulate AJAX request (replace with actual AJAX logic)
+                setTimeout(function() {
+                    $('#loader').hide();
+                    window.location.href = $(event.target).attr('href');  // Redirect to the category page
+                }, 1000);  // Simulating AJAX delay
             });
         });
     </script>
