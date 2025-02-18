@@ -99,7 +99,7 @@ public function update(Request $request, $id)
     $item->save();
 
     // Redirect back with success message
-    return redirect()->route('jeanss.index')->with('success', 'Item updated successfully');
+    return redirect()->route('jeans.index')->with('success', 'Item updated successfully');
 }
 
 }
