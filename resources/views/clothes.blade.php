@@ -110,7 +110,7 @@
         <div class="mt-5">
             <h2>Available Clothes</h2>
             <div class="row">
-                @forelse($clothes as $item)
+                @forelse($clothes as $item)   
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top" alt="{{ $item->name }}">
