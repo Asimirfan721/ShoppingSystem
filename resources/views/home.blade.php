@@ -176,12 +176,11 @@
                 }
             });
 
-            // AJAX for category navigation with loading spinner
+             
             $('.category-btn').on('click', function(event) {
                 event.preventDefault();
                 $('#loader').show();
 
-                // Simulate AJAX request (replace with actual AJAX logic)
                 setTimeout(function() {
                     $('#loader').hide();
                     window.location.href = $(event.target).attr('href');  // Redirect to the category page
