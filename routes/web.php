@@ -36,6 +36,9 @@ Route::post('/jeans-store', [JeansController::class, 'store'])->name('jeans.stor
 
 Route::get('/jeans/{id}/edit', [JeansController::class, 'edit'])->name('jeans.edit');
 Route::put('/jeans/{id}', [JeansController::class, 'update'])->name('jeans.update');
+Route::get('jeans/print', [JeansController::class, 'print'])->name('print');
+Route::get('/jeans/print/{id}', [JeansController::class, 'print'])->name('jeans.print');
+
 
 //ShirtsController
 Route::get('/shirts', [ShirtsController::class, 'index'])->name('shirts');
