@@ -47,9 +47,23 @@
             color: #000;
             font-weight: bold;
         }
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
     </style>
 </head>
+
 <body>
+    <script>
+        function printPage() {
+            window.print();
+        }
+    </script>
+    <div class="print-button" style="text-align: center; margin-top: 20px;">
+        <button onclick="printPage()" style="padding: 10px 20px; font-size: 1rem; cursor: pointer;">Print</button>
+    </div>
     <div class="container">
         <div class="header">
             <h1>Jeans Item Details</h1>
