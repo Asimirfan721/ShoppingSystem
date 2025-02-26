@@ -102,3 +102,4 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 //New Practice
 
 Route::get('/1-New', [PracticeController::class, 'index'])->name('New-1');
+Route::get('second',[PracticeController::class, 'create'])->name('Second');

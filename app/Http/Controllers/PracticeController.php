@@ -9,4 +9,7 @@ class PracticeController extends Controller
     public function index(){
         return view('practice');
     }
+    public function create(){
+        return view('practice');
+    }
 }
