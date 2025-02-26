@@ -101,12 +101,7 @@ public function update(Request $request, $id)
     // Redirect back with success message
     return redirect()->route('jeans.index')->with('success', 'Item updated successfully');
 }
-public function print($id)
-{
-    // Find the item by ID
-    $item = Jeans::findOrFail($id);
-
-    // Return the print view with the item data
-    return view('jeans.print', compact('item'));
+public function print(){
+    return view('jeans');
 }
 }

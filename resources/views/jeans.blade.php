@@ -147,7 +147,7 @@
             <table class="table table-bordered mt-4">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>Serial #</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
