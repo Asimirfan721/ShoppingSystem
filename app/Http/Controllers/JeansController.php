@@ -10,7 +10,7 @@ class JeansController extends Controller
     // Display all jeans items
     public function index()
     {
-        $jeans = Jeans::all();
+        $jeans = Jeans::all(); // Fetch all jeans items from the database
         return view('jeans', compact('jeans'));
     }
 
