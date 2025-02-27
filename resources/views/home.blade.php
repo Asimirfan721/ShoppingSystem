@@ -14,7 +14,7 @@
 
         /* Background Animation */
         .animation span {
-            position: absolute;
+            position: center;
             width: 15px;
             height: 15px;
             background: rgba(255, 255, 255, 0.6);
@@ -38,7 +38,7 @@
             padding: 12px 20px;
             font-size: 1.1rem;
             font-weight: 600;
-            color: white;
+            color: White;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.3);
@@ -130,7 +130,7 @@
     <div class="relative w-full max-w-4xl p-8 bg-gray-800 rounded-xl shadow-lg">
         <!-- Header with User Profile -->
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-4xl font-bold text-yellow-400">Welcome to Our Modern Store</h1>
+            <h1 class="text-4xl font-bold text-yellow-400"> Modern Store</h1>
             
             <!-- Profile Dropdown -->
             @auth
