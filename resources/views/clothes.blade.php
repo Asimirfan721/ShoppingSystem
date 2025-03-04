@@ -9,7 +9,7 @@
     <style>
         /* General Page Styles */
         body {
-            background-color: white; /* White Background */
+            background-color: white; /* Whitnd */
             color: black; /* Black Text */
             font-family: 'Arial', sans-serif;
         }
@@ -25,8 +25,8 @@
 
         /* Cards */
         .card {
-            background-color: white; /* White Background */
-            border: 2px solid red; /* Red Border */
+            background-color: white; /* Whid */
+            border: 2px solid red; /* Reer */
             border-radius: 8px;
             transition: all 0.3s ease-in-out;
             box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
@@ -106,11 +106,11 @@
     <div class="container mt-5">
         <h1>Welcome to Clothes</h1>
 
-        <!-- Display Clothes Items -->
+        <!-- Displatems  -->
         <div class="mt-5">
             <h2>Available Clothes</h2>
             <div class="row">
-                @forelse($clothes as $item)
+                @forelse($clothes as $item)   
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top" alt="{{ $item->name }}">
@@ -118,6 +118,12 @@
                                 <h5 class="card-title">{{ $item->name }}</h5>
                                 <p class="card-text">{{ $item->description }}</p>
                                 <p class="price"><strong>Price:</strong> ${{ number_format($item->price, 2) }}</p>
+                                <a href="{{ route('clothes.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('clothes.destroy', $item->id) }}" method="POST">
+                                     @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this image?')">Delete</button>
+                                </form>
                             </div>
                         </div>
                     </div>

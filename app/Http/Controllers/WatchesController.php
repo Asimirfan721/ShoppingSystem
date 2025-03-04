@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use App\Models\Watches;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Storage;
  
 class WatchesController extends Controller
 {
@@ -44,6 +46,59 @@ class WatchesController extends Controller
         // Redirect to the jeuccess message
         return redirect()->route('watches.index')->with('success', 'Watche added successfully!');
     }
+    public function destroy($id)
+    {
+        $watches = Watches::findOrFail($id);
+    
+        // Delete image from storage
+        if ($watches->image) {
+            Storage::delete('public/' . $watches->image);
+        }
+    
+        // Delete the record from database
+        $watches->delete();
+    
+        return redirect()->route('watches.index')->with('success', 'Watches image deleted successfully.');
+    }
 
+
+    public function edit($id)
+    {
+        // Find the item by ID
+        $item = Watches::findOrFail($id);
+    
+        // Return the edit view with the item data
+        return view('watches.edit', compact('item'));
+    }
+    public function update(Request $request, $id)
+    {
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+    
+        // Find the item by ID
+        $item = Watches::findOrFail($id);
+    
+        // Update the item details
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->price = $request->input('price');
+    
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $item->image = $imagePath;
+        }
+    
+        // Save the updated item
+        $item->save();
+    
+        // Redirect back with success message
+        return redirect()->route('watches.index')->with('success', 'Item updated successfully');
+    }
 
 }

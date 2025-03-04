@@ -1,47 +1,84 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Login</h2>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <!-- Alert Message -->
+        <div id="message" class="hidden p-3 mb-4 text-white text-center rounded"></div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <form id="loginForm">
+            @csrf
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold">Email</label>
+                <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" required>
+                <small id="emailError" class="text-red-500"></small>
+            </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold">Password</label>
+                <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500" placeholder="Enter password" required>
+                <small id="passwordError" class="text-red-500"></small>
+            </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+            <button type="submit" class="w-full bg-blue-500 text-white font-semibold p-2 rounded hover:bg-blue-600 transition duration-300">
+                Login
+            </button>
+        </form>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+        <p class="text-center mt-4 text-gray-600">
+            Don't have an account? <a href="{{ route('register') }}" class="text-blue-500 font-semibold hover:underline">Register</a>
+        </p>
+    </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').submit(function(e) {
+                e.preventDefault();
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+                let formData = $(this).serialize();
+                let email = $('#email').val().trim();
+                let password = $('#password').val();
+
+                // Clear previous errors
+                $('.text-red-500').text('');
+
+                // Simple Frontend Validation
+                if (email === '') {
+                    $('#emailError').text('Email is required.');
+                    return;
+                }
+                if (password === '') {
+                    $('#passwordError').text('Password is required.');
+                    return;
+                }
+
+                // AJAX Request
+                $.ajax({
+                    url: "{{ route('login') }}",
+                    type: "POST",
+                    data: formData,
+                    success: function(response) {
+                        $('#message').removeClass('hidden bg-red-500').addClass('bg-green-500').text('Login successful! Redirecting...').show();
+                        setTimeout(function() {
+                            window.location.href = "{{ route('home') }}"; // Redirect to home page
+                        }, 2000);
+                    },
+                    error: function(xhr) {
+                        $('#message').removeClass('hidden bg-green-500').addClass('bg-red-500').text('Invalid credentials!').show();
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -131,6 +131,7 @@
     <!-- Home Button -->
     <a href="{{ route('home') }}" class="home-btn">Home</a>
 
+
     <div class="container mt-5">
         <h1>Jeans Items</h1>
 
@@ -146,7 +147,7 @@
             <table class="table table-bordered mt-4">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>Serial #</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
@@ -167,10 +168,18 @@
                                 @else
                                     <p>No Image</p>
                                 @endif
-                            </td>
+                             </td>
                             <td>
-                                <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                            </td>
+                             {{-- <a href="{{ route('print', $item->id) }}" class="print-btn btn btn-info btn-sm">Prnt</a> --}}
+                                <a href="{{ route('jeans.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ route('image.delete', $item->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
+                                <!-- Example button to print a jeans item -->
+                                <a href="{{ route('jeans.print', ['id' => $item->id]) }}" class="btn btn-primary">Print</a>
+                            </td>   
                         </tr>
                     @endforeach
                 </tbody>

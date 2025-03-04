@@ -46,6 +46,15 @@
                 </div>
             @endif
         </div>
+        <div class="text-center">
+            @if(Auth::user()->image)
+                <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Profile Image" class="w-32 h-32 rounded-full mx-auto">
+            @else
+                <img src="{{ asset('default-profile.png') }}" alt="Default Profile Image" class="w-32 h-32 rounded-full mx-auto">
+            @endif
+            <h2 class="text-xl font-bold mt-2">{{ Auth::user()->name }}</h2>
+        </div>
+        
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
