@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Print Jeans Item</title>
-    <style>
+    <style>  
         body {
             font-family: 'Poppins', sans-serif;
             margin: 20px;
