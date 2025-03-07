@@ -91,7 +91,7 @@ public function update(Request $request, $id)
     // Save the updated item
     $item->save();
 
-    // Redirect back with success message
+    // Redirect back with success  msg
     return redirect()->route('electronics.index')->with('success', 'Item updated successfully');
 }
 

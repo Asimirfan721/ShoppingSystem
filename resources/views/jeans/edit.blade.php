@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Jeans</title>
-    <!-- Bootstrap CSS Link -->
+    <!-- Bootstrap CSS Link -->  
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .container {
             max-width: 800px;
-        }
+        }  
         .alert {
             margin-bottom: 20px;
         }
         .form-label {
             font-weight: bold;
         }
-        .img-preview {
+        .img-preview {   
             width: 100px;
             height: auto;
             margin-top: 10px;
@@ -36,7 +36,7 @@
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
-            </div>
+            </div>  
         @endif
 
         <!-- Edit Form -->
