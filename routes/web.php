@@ -104,7 +104,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 
 //New Practice
+Route::middleware(['auth'])->group(function () {
+    Route::get('/images', [ImageController::class, 'index']);
+    Route::post('/images/upload', [ImageController::class, 'upload']);
 
 Route::get('/image', [ImageController::class, 'index'])->name('image');
 Route::get('image/upload',[ImageController::class, 'create'])->name('image/upload');
- 
+});
