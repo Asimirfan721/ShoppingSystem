@@ -12,6 +12,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController; 
 use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\ImageController;
 Route::get('/', function () {
     return view('home');
 });
