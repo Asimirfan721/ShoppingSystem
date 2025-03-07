@@ -120,6 +120,7 @@
 <body>
 
     <div class="container">
+    <a href="{{ route('home') }}" class="home-btn">Home</a>
         <h1>Add New Item</h1>
 
         <form id="addItemForm" action="{{ route('item.store') }}" method="POST" enctype="multipart/form-data">

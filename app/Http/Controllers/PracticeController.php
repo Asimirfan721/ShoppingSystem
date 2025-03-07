@@ -13,7 +13,7 @@ class PracticeController extends Controller
         return view('practice');
     }
 
-    public function index(){
+    public function edit(){
         return view('practice');
 
     }
