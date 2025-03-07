@@ -160,7 +160,7 @@
             <a href="{{ route('shirts') }}" class="category-btn">Shirts</a>
             <a href="{{ route('watches') }}" class="category-btn">Watches</a>
             <a href="{{ route('create') }}" class="category-btn">Create</a>
-           
+            <a href="{{ route('image') }}" class="category-btn">Image</a>
         </div>
 
         <!-- Loading Spinner -->

@@ -104,6 +104,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 //New Practice
 
-Route::get('/1-New', [PracticeController::class, 'index'])->name('New-1');
-Route::get('second',[PracticeController::class, 'create'])->name('Second');
+Route::get('/image', [ImageController::class, 'index'])->name('image');
+Route::get('image/upload',[ImageController::class, 'create'])->name('image/upload');
  
