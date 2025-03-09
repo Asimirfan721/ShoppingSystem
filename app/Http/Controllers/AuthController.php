@@ -8,13 +8,13 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    // Show registration form
+    // Show registration form for
     public function showRegisterForm()
     {
         return view('auth.register');
     }
 
-    // Handle user registration
+    // Handle user registration ksk
     public function register(Request $request)
 {
     $request->validate([
@@ -24,7 +24,7 @@ class AuthController extends Controller
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
-    // Handle image upload
+    // Handle image upload  image uploading
     $imagePath = null;
     if ($request->hasFile('image')) {
         $imagePath = $request->file('image')->store('profile_images', 'public');
