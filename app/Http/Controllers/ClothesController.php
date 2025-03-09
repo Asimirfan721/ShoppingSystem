@@ -30,7 +30,7 @@ class ClothesController extends Controller
         'category' => 'required|string',
     ]);
 
-
+  // Handle image upload comment issue
     $imagePath = $request->file('image')->store('clothes', 'public');
 
     Clothes::create([
@@ -53,7 +53,7 @@ public function destroy($id)
         Storage::delete('public/' . $clothes->image);
     }
 
-    // Delete the record from database
+    // Delete the record from databases
     $clothes->delete();
 
     return redirect()->route('clothes.index')->with('success', 'Shirt image deleted successfully.');
@@ -61,15 +61,15 @@ public function destroy($id)
 
 public function edit($id)
 {
-    // Find the item by ID
+    // Find the item by ID ...
     $item = Clothes::findOrFail($id);
 
-    // Return the edit view with the item data
+    // Return the edit view with the item data....
     return view('clothes.edit', compact('item'));
 }
 public function update(Request $request, $id)
 {
-    // Validate the request
+    // Validate the request data
     $request->validate([
         'name' => 'required|string|max:255',
         'description' => 'required|string',
