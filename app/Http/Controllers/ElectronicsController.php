@@ -88,10 +88,10 @@ public function update(Request $request, $id)
         $item->image = $imagePath;
     }
 
-    // Save the updated item
+    // Save the updated
     $item->save();
 
-    // Redirect back with success  msg
+    // Redirect back with success  message
     return redirect()->route('electronics.index')->with('success', 'Item updated successfully');
 }
 
