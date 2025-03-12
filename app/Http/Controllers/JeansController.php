@@ -1,9 +1,9 @@
 <?php 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; // Define the namespace for the controller 
 
-use Illuminate\Http\Request;
-use App\Models\Jeans;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request; // Import the request class 
+use App\Models\Jeans; // Import the jeans model 
+use Illuminate\Support\Facades\Storage; // Import the storage facade
 
 class JeansController extends Controller
 {
@@ -11,7 +11,7 @@ class JeansController extends Controller
     public function index()
     {
         $jeans = Jeans::all(); // Fetch all jeans items from the database
-        return view('jeans', compact('jeans'));
+        return view('jeans', compact('jeans')); // Return the view with the jeans items
     }
 
     // Show the form to create a new jeans item
@@ -44,26 +44,26 @@ class JeansController extends Controller
             'image' => $imagePath,
         ]);
 
-        return redirect()->route('jeans.index')->with('success', 'Jeans item added successfully!');
+        return redirect()->route('jeans.index')->with('success', 'Jeans item added successfully!'); // Corrected route name and success message 
     }
 
     // Delete a jeans item
     public function destroy($id)
     {
-        $jeans = Jeans::findOrFail($id);
+        $jeans = Jeans::findOrFail($id); // Find the jeans item by ID 
 
         // Check if the image exists before deleting
-        if ($jeans->image && Storage::disk('public')->exists($jeans->image)) {
-            Storage::disk('public')->delete($jeans->image);
+        if ($jeans->image && Storage::disk('public')->exists($jeans->image)) { // Check if the image exists in the storage 
+            Storage::disk('public')->delete($jeans->image); // Delete the image from the storage 
         }
 
         // Delete the record from the database
         $jeans->delete();
 
-        return redirect()->back()->with('success', 'Product deleted successfully.');
+        return redirect()->back()->with('success', 'Product deleted successfully.'); // Redirect back with success message 
     }
     
-public function edit($id)
+public function edit($id) // Define the edit method 
 {
     // Find the item by ID
     $item = Jeans::findOrFail($id);
@@ -71,7 +71,7 @@ public function edit($id)
     // Return the edit view with the item data
     return view('jeans.edit', compact('item'));
 }
-public function update(Request $request, $id)
+public function update(Request $request, $id) // Define the update method 
 {
     // Validate the request
     $request->validate([
@@ -85,21 +85,21 @@ public function update(Request $request, $id)
     $item = Jeans::findOrFail($id);
 
     // Update the item details
-    $item->name = $request->input('name');
-    $item->description = $request->input('description');
-    $item->price = $request->input('price');
+    $item->name = $request->input('name'); // Update the name 
+    $item->description = $request->input('description'); // Update the description 
+    $item->price = $request->input('price'); // Update the price 
 
     // Handle image upload
-    if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('images', 'public');
-        $item->image = $imagePath;
+    if ($request->hasFile('image')) { // Check if the request has an image 
+        $imagePath = $request->file('image')->store('images', 'public'); // Store the image in the public folder 
+        $item->image = $imagePath; // Save the image path 
     }
 
     // Save the updated item
     $item->save();
 
     // Redirect back with success message
-    return redirect()->route('jeans.index')->with('success', 'Item updated successfully');
+    return redirect()->route('jeans.index')->with('success', 'Item updated successfully'); // Redirect to the jeans index page with success message
 }
 public function print(){
     return view('jeans');
