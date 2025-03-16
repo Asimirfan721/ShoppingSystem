@@ -12,10 +12,10 @@ class PracticeController extends Controller
     }
 
     public function index(){
-        return view('practice');
+        return view('practice'); // return the view 
     }
-    public function create(){
-        return view('practice');
+    public function create(){ // create method
+        return view('practice'); // return the view
     }
 
     public function edit(){
