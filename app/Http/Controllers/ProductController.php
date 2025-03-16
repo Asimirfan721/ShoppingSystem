@@ -13,13 +13,13 @@ class ProductController extends Controller // product controller class extends t
 
     public function clothes()
     {
-        return view('clothes');
-    }
+        return view('clothes'); // return the view
+    } 
 
-    public function jeans()
+    public function jeans() // define the jeans method
     {
-        return view('jeans');
-    }
+        return view('jeans'); // return the view
+    } 
 
     public function shirts()
     {
