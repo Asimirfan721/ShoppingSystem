@@ -96,3 +96,4 @@ public function update(Request $request, $id) // define the update method
 }
 
 }
+   
