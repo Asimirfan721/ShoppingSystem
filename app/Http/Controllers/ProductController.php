@@ -1,13 +1,14 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; // Ensure you have this namespace
 
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductController extends Controller // product controller class extends the controller class
 {
-    public function electronics()
+    public function electronics() // define the electronics method
     {
-        return view('electronics');
+        return view('electronics'); // return the view
+    
     }
 
     public function clothes()
