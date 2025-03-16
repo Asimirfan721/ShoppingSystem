@@ -85,7 +85,7 @@ public function update(Request $request, $id) // define the update method reques
     $item->name = $request->input('name'); //   update the name 
     $item->description = $request->input('description'); // update the description
     $item->price = $request->input('price'); // update the price
-
+   
     // Handle image upload
     if ($request->hasFile('image')) { // check if the request has an image 
         $imagePath = $request->file('image')->store('images', 'public'); // store the image in the public folder 
