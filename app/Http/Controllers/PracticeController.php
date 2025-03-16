@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+// 
 use Illuminate\Http\Request;
 
 class PracticeController extends Controller
 {
-    public function __construct()
+    public function __construct()  
     {
-        $this->middleware('practice');
+       // $this->middleware('practice');
     }
 
     public function index(){

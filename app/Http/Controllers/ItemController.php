@@ -26,7 +26,7 @@ class ItemController extends Controller // define the class item controller exte
             $data['image'] = $request->file('image')->store('products', 'public'); // store the image in the public folder 
         }
   
-        // Save the data into the on the category
+        // Save the data into the on the category  
         switch ($request->category) { // switch the category
             case 'electronics': // case for electronics 
                 Electronics::create($data); // create the electronics
