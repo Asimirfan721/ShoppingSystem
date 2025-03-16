@@ -25,7 +25,7 @@ class ItemController extends Controller // define the class item controller exte
         if ($request->hasFile('image')) { // check if the request has an image 
             $data['image'] = $request->file('image')->store('products', 'public'); // store the image in the public folder 
         }
-
+  
         // Save the data into the on the category
         switch ($request->category) { // switch the category
             case 'electronics': // case for electronics 
