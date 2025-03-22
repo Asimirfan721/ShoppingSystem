@@ -11,7 +11,7 @@ class PracticeController extends Controller
        // $this->middleware('practice');
     }
 
-    public function index(){
+    public function index(){        // index funciton 
         return view('practice'); // return the view 
     }
     public function create(){ // create method
