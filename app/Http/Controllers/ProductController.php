@@ -21,7 +21,7 @@ class ProductController extends Controller // product controller class extends t
         return view('jeans'); // return the view
     } 
 
-    public function shirts()
+    public function shirts() //    shirts function
     {
         return view('shirts');
     }
