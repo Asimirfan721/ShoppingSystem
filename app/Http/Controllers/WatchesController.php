@@ -17,7 +17,7 @@ class WatchesController extends Controller
     }
     public function create()
     {
-        return view('electronics.create'); // Update this ifeans
+        return view('electronics.create'); // Update this ifeanss
     }
 
     public function store(Request $request)

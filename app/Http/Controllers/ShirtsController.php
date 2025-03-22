@@ -38,7 +38,7 @@ class ShirtsController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'category' => 'Shirts',
-            'image' => $imagePath,
+            'image' => $imagePath, // image path
         ]);
    
         // Redirect to tj page with a success message
