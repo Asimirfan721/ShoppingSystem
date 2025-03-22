@@ -12,7 +12,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('profile.index', compact('user')); // return view 
+        return view('profile.index', compact('user')); // return view  prfile is in the index folder or vice versa
     }    
 
     // Show profile edit form

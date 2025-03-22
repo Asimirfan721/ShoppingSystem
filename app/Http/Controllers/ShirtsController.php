@@ -42,7 +42,7 @@ class ShirtsController extends Controller
         ]);
    
         // Redirect to tj page with a success message
-        return redirect()->route('shirts.index')->with('success', 'Shirts item added successfully!');
+        return redirect()->route('shirts.index')->with('success', 'Shirts item added successfully!');  // 
     }
     public function destroy($id)
 {

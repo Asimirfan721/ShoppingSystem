@@ -38,8 +38,8 @@ class JeansController extends Controller
         // Create a new jeans item
         Jeans::create([
             'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
+            'description' => $request->description, // description controller 
+            'price' => $request->price, // price 
             'category' => $request->category, // Allow dynamic category
             'image' => $imagePath,
         ]);
