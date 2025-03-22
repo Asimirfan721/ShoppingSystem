@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;  //    Ensure you have this namespace
 use App\Models\Watches;  // Ensure you have this use statement
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // define request 
 
 use Illuminate\Support\Facades\Storage;
  
