@@ -14,7 +14,7 @@ class WatchesController extends Controller
 
         // Pass the jeansta to the view
         return view('watches', compact('watches'));
-    }
+    }   
     public function create()
     {
         return view('electronics.create'); // Update this ifeanss

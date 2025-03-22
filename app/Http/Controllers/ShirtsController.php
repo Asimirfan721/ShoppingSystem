@@ -36,8 +36,8 @@ class ShirtsController extends Controller
         Shirts::create([
             'name' => $request->name,
             'description' => $request->description,
-            'price' => $request->price,
-            'category' => 'Shirts',
+            'price' => $request->price, // price request
+            'category' => 'Shirts', // select category 
             'image' => $imagePath, // image path
         ]);
    
