@@ -4,7 +4,7 @@ namespace App\Http\Controllers;  // Ensure you have this namespace
 
 use Illuminate\Http\Request; // Ensure you have this namespace
 use Illuminate\Support\Facades\Auth; // Ensure you have this namespace here
-use App\Models\User; // Ensure you have this namespace
+use App\Models\User; // Ensure you have this namespace  
 
 class ProfileController extends Controller
 {
@@ -12,7 +12,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('profile.index', compact('user')); // return view  prfile is in the index folder or vice versa
+        return view('profile.index', compact('user')); // return view  prfile is in the index folder or vice versa  
     }    
 
     // Show profile edit form
