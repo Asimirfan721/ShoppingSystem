@@ -37,12 +37,12 @@ class ShirtsController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price, // price request
-            'category' => 'Shirts', // select category 
+            'category' => 'Shirts', // select category  here
             'image' => $imagePath, // image path
         ]);
    
         // Redirect to tj page with a success message
-        return redirect()->route('shirts.index')->with('success', 'Shirts item added successfully!');  // 
+        return redirect()->route('shirts.index')->with('success', 'Shirts item added successfully!');  //   
     }
     public function destroy($id)
 {
