@@ -46,7 +46,7 @@ class ShirtsController extends Controller
     }
     public function destroy($id)
 {
-    $shirts = Shirts::findOrFail($id); // finding id from database here
+    $shirts = Shirts::findOrFail($id); // finding id from database here in this 
 
     // Delete image from storage
     if ($shirts->image) {
