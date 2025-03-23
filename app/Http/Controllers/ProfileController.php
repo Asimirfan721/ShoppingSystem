@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;  // Ensure you have this namespace
 
 use Illuminate\Http\Request; // Ensure you have this namespace
-use Illuminate\Support\Facades\Auth; // Ensure you have this namespace
+use Illuminate\Support\Facades\Auth; // Ensure you have this namespace here
 use App\Models\User; // Ensure you have this namespace
 
 class ProfileController extends Controller
