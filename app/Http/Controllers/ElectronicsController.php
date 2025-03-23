@@ -92,7 +92,7 @@ public function update(Request $request, $id) // define the update method
     $item->save();
 
     // Redirect back with success  message
-    return redirect()->route('electronics.index')->with('success', 'Item updated successfully');
+    return redirect()->route('electronics.index')->with('success', 'Item updated successfully'); // return direct
 }
 
 }

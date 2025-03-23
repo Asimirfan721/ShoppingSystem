@@ -27,7 +27,7 @@ class ItemController extends Controller // define the class item controller exte
         }
   
         // Save the data into the on the category  
-        switch ($request->category) { // switch the category
+        switch ($request->category) { // switch the category here
             case 'electronics': // case for electronics 
                 Electronics::create($data); // create the electronics
                 break;  // break the case

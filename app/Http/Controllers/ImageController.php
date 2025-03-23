@@ -20,7 +20,7 @@ class ImageController extends Controller // define the class
         $request->image->move(public_path('images'), $imageName); // move the image to the public folder 
 
         $image = new Image(); // create a new image 
-        $image->name = $imageName; //  save the image name 
+        $image->name = $imageName; //  save the image name here
         $image->save(); // save the image 
 
         return back()->with('success','Image uploaded successfully.')->with('image',$imageName); // return back with success message

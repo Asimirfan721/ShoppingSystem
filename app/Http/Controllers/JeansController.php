@@ -50,7 +50,7 @@ class JeansController extends Controller
     // Delete a jeans item
     public function destroy($id)
     {
-        $jeans = Jeans::findOrFail($id); // Find the jeans item by ID 
+        $jeans = Jeans::findOrFail($id); // Find the jeans item by ID  here
 
         // Check if the image exists before deleting
         if ($jeans->image && Storage::disk('public')->exists($jeans->image)) { // Check if the image exists in the storage 
