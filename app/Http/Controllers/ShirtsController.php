@@ -37,7 +37,7 @@ class ShirtsController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price, // price request
-            'category' => 'Shirts', // select category  here
+            'category' => 'Shirts', // select category  here Id 
             'image' => $imagePath, // image path
         ]);
    
